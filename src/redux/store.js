@@ -1,11 +1,8 @@
-import { createStore , applyMiddleware, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import {reducer} from './form/form-reducer'
+import routReducer from './form/form-reducer'
 
-// const reducer = combineReducers({
-//     form: formReducer,
-// })
 
-const store = createStore(reducer, devToolsEnhancer());
+const store = createStore(routReducer, devToolsEnhancer());
 
 export default store;   

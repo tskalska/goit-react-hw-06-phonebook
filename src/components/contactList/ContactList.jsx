@@ -7,7 +7,7 @@ import { deletContact } from '../../redux/form/form-actions';
 export default function ContactList ({ deleteButtnHandler }){
   
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts)
+  const contacts = useSelector((state) => state.contacts.contacts)
   console.log(contacts);
 
   // const normalizedFilter = filterX.toLowerCase()

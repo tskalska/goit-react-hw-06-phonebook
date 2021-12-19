@@ -7,7 +7,7 @@ const INITUAL_STATE = {
 }
 
 
-export const reducer = (state = INITUAL_STATE, action) => {
+const contactsReducer = (state = INITUAL_STATE, action) => {
     switch (action.type) {
 
         case ADD_CONTACT:
@@ -43,11 +43,13 @@ export const reducer = (state = INITUAL_STATE, action) => {
     }
 };
 
-// const reducer newNumber = (state = '', action) => {
-//     return state;
-// }
+const filterReducer = (state = '', action) => {
+    return state;
+}
 
-// export default combineReducers ({
-//     newName,
-//     newNumber
-// })
+const routReducer = combineReducers({
+    contacts: contactsReducer,
+    filter: filterReducer,
+})
+
+export default routReducer;

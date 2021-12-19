@@ -10,7 +10,7 @@ import {addContact}  from './redux/form/form-actions';
 export default function App() {
 
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.error); 
+  const error = useSelector((state) => state.contacts.error); 
 
 
   const formSubmitHandler = ({newName, newNumber}) => {
