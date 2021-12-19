@@ -8,10 +8,14 @@ export default function ContactList ({ deleteButtnHandler }){
   
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.contacts)
-  console.log(contacts);
+  const filter = useSelector((state) => state.filter)
 
-  // const normalizedFilter = filterX.toLowerCase()
-  // const filteredList = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
+  console.log(filter);
+  console.log(contacts);
+  const normalizedFilter = filter.toLowerCase()
+  const filteredList = contacts.filter(contact => contact.name.includes(normalizedFilter))
+
+
 
 
   return ( 
@@ -19,7 +23,7 @@ export default function ContactList ({ deleteButtnHandler }){
     <h2>Contacts: </h2><br />
     {!contacts && <span>У вас нет контактов!</span>}
     {contacts &&
-      <ul>{contacts.map(contact =>
+      <ul>{filteredList.map(contact =>
         <li key={uuidv4()}>
           {contact.name} : {contact.number}
           <button type="button" onClick={ () => dispatch(deletContact(contact.name))}>

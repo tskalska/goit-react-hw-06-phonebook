@@ -11,5 +11,5 @@ export function deletContact(name) {
 
 
 export function filterContacts(value) {
-    return {type: FILTER_CONTACTS, payload:{ value }}
+    return {type: FILTER_CONTACTS, payload: value }
 }

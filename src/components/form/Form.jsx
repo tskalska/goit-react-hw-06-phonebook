@@ -63,4 +63,18 @@ export default function Form (props) {
       </form>
     </div>
   );
+
+  // const mapStateToProps = state => ({ ...state,
+  //   value: state.filter,
+  // })
+  
+  // const mapDispatchToProps = dispatch => ({
+  //   onChange: (event) => dispatch(filterContacts(event.target.value)),
+  // })
+  
+  
+  // export default connect(mapStateToProps, mapDispatchToProps)(Filter)
+
+
+
 }

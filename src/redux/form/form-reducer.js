@@ -1,13 +1,12 @@
 import { combineReducers } from "redux"; 
 import {ADD_CONTACT, DELET_CONTACT, FILTER_CONTACTS} from './form-types';
 
-const INITUAL_STATE = {
+const CONTACTS_INIT_STATE = {
     contacts:[],
     error: '',
 }
 
-
-const contactsReducer = (state = INITUAL_STATE, action) => {
+const contactsReducer = (state = CONTACTS_INIT_STATE, action) => {
     switch (action.type) {
 
         case ADD_CONTACT:
@@ -32,11 +31,7 @@ const contactsReducer = (state = INITUAL_STATE, action) => {
                 contacts: state.contacts.filter(contact => contact.name !== action.payload.name)
             }
         
-        case FILTER_CONTACTS:
-            return {
-                ...state,
-                contacts: state.contacts.filter(contact => contact.name === action.payload.name)
-            }
+     
         
         default:
             return state;
@@ -44,7 +39,13 @@ const contactsReducer = (state = INITUAL_STATE, action) => {
 };
 
 const filterReducer = (state = '', action) => {
-    return state;
+    switch (action.type) { 
+        case FILTER_CONTACTS:
+            return action.payload;
+        
+        default:
+            return state;
+    }
 }
 
 const routReducer = combineReducers({

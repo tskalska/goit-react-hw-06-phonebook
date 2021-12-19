@@ -1,25 +1,10 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
 import { filterContacts }  from '../../redux/form/form-actions';
 import { connect } from 'react-redux';
 
 
 
 const Filter = ({value, onChange}) => {
-  // const dispatch = useDispatch();
-
-  // const handleChange = (event) => {
-  //   console.log(event);
-  //   dispatch(filterContacts(event.target.value))
-  // }
-
-  // const findCondtact = ({findName}) => {
-  //   console.log({findName})
-  //   dispatch(filterContacts(findName))
-  // }
-
-
-
 
 return (
   <div>
@@ -37,12 +22,17 @@ return (
   </div>)
 }
 
-const mapStateToProps = state => ({
+
+
+
+
+const mapStateToProps = state => ({ ...state,
   value: state.filter,
 })
 
 const mapDispatchToProps = dispatch => ({
   onChange: (event) => dispatch(filterContacts(event.target.value)),
 })
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)
