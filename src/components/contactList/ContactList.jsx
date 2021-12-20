@@ -4,19 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletContact } from '../../redux/form/form-actions';
 
 
-export default function ContactList ({ deleteButtnHandler }){
+export default function ContactList (){
   
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.contacts)
   const filter = useSelector((state) => state.filter)
+  // console.log(filter);
 
-  console.log(filter);
-  console.log(contacts);
   const normalizedFilter = filter.toLowerCase()
   const filteredList = contacts.filter(contact => contact.name.includes(normalizedFilter))
-
-
-
 
   return ( 
   <div>

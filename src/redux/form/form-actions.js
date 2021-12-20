@@ -6,7 +6,7 @@ export function addContact({ name, number}) {
 }
 
 export function deletContact(name) {
-    return { type: DELET_CONTACT, payload:{ name }}
+    return { type: DELET_CONTACT, payload: name }
 }
 
 

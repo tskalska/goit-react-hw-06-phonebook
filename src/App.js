@@ -1,22 +1,13 @@
-import {useState, useEffect} from 'react';
 import './App.css'; 
 import Form from './components/form/Form'
 import Filter from './components/filter/Filter';
 import ContactList from './components/contactList/ContactList';
-import { useDispatch, useSelector } from 'react-redux';
-import {addContact}  from './redux/form/form-actions';
+import { useSelector } from 'react-redux';
 
 
 export default function App() {
 
-  const dispatch = useDispatch();
   const error = useSelector((state) => state.contacts.error); 
-
-
-  const formSubmitHandler = ({newName, newNumber}) => {
-    dispatch(addContact({name: newName, number: newNumber}))
-  }
-
 
 
   // useEffect(()=> {
@@ -29,15 +20,11 @@ export default function App() {
     <div>
       <h1>Phonebook</h1><br/>
       {error && <p style = {{color:"red"}}>{error}</p>}
-      <Form
-        onSubmit={ formSubmitHandler }
-      />
+      <Form />
 
-      <Filter
-      />
+      <Filter />
       
-      <ContactList
-      />
+      <ContactList />
     </div>
   );
 }

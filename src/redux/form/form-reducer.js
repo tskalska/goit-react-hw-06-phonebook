@@ -28,10 +28,8 @@ const contactsReducer = (state = CONTACTS_INIT_STATE, action) => {
         case DELET_CONTACT:
             return {
                 ...state,
-                contacts: state.contacts.filter(contact => contact.name !== action.payload.name)
+                contacts: state.contacts.filter(contact => contact.name !== action.payload)
             }
-        
-     
         
         default:
             return state;
@@ -39,13 +37,13 @@ const contactsReducer = (state = CONTACTS_INIT_STATE, action) => {
 };
 
 const filterReducer = (state = '', action) => {
-    switch (action.type) { 
-        case FILTER_CONTACTS:
-            return action.payload;
-        
-        default:
-            return state;
-    }
+        switch (action.type) { 
+            case FILTER_CONTACTS:
+                return action.payload;
+            
+            default:
+                return state;
+        }
 }
 
 const routReducer = combineReducers({

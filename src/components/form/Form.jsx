@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import styles from './Form.module.css';
+import { connect } from 'react-redux';
+import {addContact} from '../../redux/form/form-actions'
 
-export default function Form (props) {
- const [newName,setNewName]=useState('');
- const [newNumber,setNewNumber]=useState('');
+const Form = props => {
 
+  const [newName,setNewName]=useState('');
+  const [newNumber,setNewNumber]=useState('');
 
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -22,14 +24,14 @@ export default function Form (props) {
     }
   }
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onSubmit({newName,newNumber});
+    props.onSubmit(newName, newNumber);
     setNewName('');
     setNewNumber(''); 
     event.target.reset();
   }
+
 
   return (
     <div>
@@ -64,17 +66,11 @@ export default function Form (props) {
     </div>
   );
 
-  // const mapStateToProps = state => ({ ...state,
-  //   value: state.filter,
-  // })
-  
-  // const mapDispatchToProps = dispatch => ({
-  //   onChange: (event) => dispatch(filterContacts(event.target.value)),
-  // })
-  
-  
-  // export default connect(mapStateToProps, mapDispatchToProps)(Filter)
-
-
-
 }
+
+  const mapDispatchToProps = dispatch => ({
+    onSubmit: (name, number) => dispatch(addContact({ name, number })),
+  });
+  
+
+  export default connect(null, mapDispatchToProps)(Form);
