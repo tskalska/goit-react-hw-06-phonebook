@@ -10,14 +10,8 @@ export default function ContactList (){
   const contacts = useSelector(state => state.contacts.contacts)
   const filter = useSelector(state => state.filter)
 
-  // const normalizedFilter = filter.toLowerCase()
-
   const filteredList = contacts.filter(contact => contact.name.includes(filter))
   
-  console.log(filter);
-  console.log(contacts);
-  console.log(filteredList);
-
   return ( 
   <div>
     {!contacts && <span>У вас нет контактов!</span>}
