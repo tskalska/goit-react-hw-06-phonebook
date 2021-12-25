@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import {createReducer} from '@reduxjs/toolkit';
 import {addContact, deletContact, filterContacts} from './actions';
 
 const initContactsState = {
@@ -20,7 +20,7 @@ export const contactsReducer = createReducer(initContactsState,{
                         name: payload.name,
                         number: payload.number
                     }],
-                    error: ``, 
+                    error: '', 
                 }
             }},
         [deletContact.type]: (state, {payload}) => {

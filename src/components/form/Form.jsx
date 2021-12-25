@@ -1,7 +1,10 @@
+import React from 'react';
 import {useState} from 'react';
 import styles from './Form.module.css';
-import { connect } from 'react-redux';
-import {addContact} from '../../redux/contactsRedux/actions'
+import {connect} from 'react-redux';
+import {addContact} from '../../redux/contactsRedux/actions';
+import PropTypes from 'prop-types';
+
 
 const Form = props => {
 
@@ -68,8 +71,12 @@ const Form = props => {
 
 }
 
+Form.propTypes = {
+  onSubmit: PropTypes.any,
+}
+
   const mapDispatchToProps = dispatch => ({
-    onSubmit: (name, number) => dispatch(addContact({ name, number })),
+    onSubmit: (name, number) => dispatch(addContact({name, number})),
   });
   
 

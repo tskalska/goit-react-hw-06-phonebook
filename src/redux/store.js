@@ -1,4 +1,4 @@
-import { configureStore, combineReducers, getDefaultMiddleware
+import {configureStore, combineReducers, getDefaultMiddleware
 } from '@reduxjs/toolkit';
 import {contactsReducer, filterReducer} from './contactsRedux/reducer'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
@@ -36,4 +36,4 @@ const store = configureStore({
 
 const persistedStore = persistStore(store);
 
-export default { store, persistedStore};   
+export default {store, persistedStore};   

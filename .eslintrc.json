@@ -1,0 +1,30 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "object-curly-spacing": ["error"],
+        "quotes": ["error", "single"],
+        "no-multi-spaces": ["error"]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}

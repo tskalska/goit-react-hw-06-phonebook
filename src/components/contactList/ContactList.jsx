@@ -1,7 +1,7 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { useDispatch, useSelector } from 'react-redux';
-import { deletContact } from '../../redux/contactsRedux/actions';
+import {v4 as uuidv4} from 'uuid';
+import {useDispatch, useSelector} from 'react-redux';
+import {deletContact} from '../../redux/contactsRedux/actions';
 
 
 export default function ContactList (){
