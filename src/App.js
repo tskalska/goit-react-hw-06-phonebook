@@ -1,4 +1,3 @@
-import './App.css'; 
 import Form from './components/form/Form'
 import Filter from './components/filter/Filter';
 import ContactList from './components/contactList/ContactList';
@@ -8,12 +7,6 @@ import { useSelector } from 'react-redux';
 export default function App() {
 
   const error = useSelector((state) => state.contacts.error); 
-
-
-  // useEffect(()=> {
-  //   localStorage.setItem('items', JSON.stringify(contacts));
-  // }, [contacts])
-
 
 
   return (

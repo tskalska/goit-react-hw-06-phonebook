@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styles from './Form.module.css';
 import { connect } from 'react-redux';
-import {addContact} from '../../redux/form/form-actions'
+import {addContact} from '../../redux/contactsRedux/actions'
 
 const Form = props => {
 

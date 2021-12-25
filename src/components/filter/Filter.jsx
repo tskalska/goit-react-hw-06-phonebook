@@ -1,7 +1,6 @@
 import React from 'react';
-import { filterContacts }  from '../../redux/form/form-actions';
+import { filterContacts }  from '../../redux/contactsRedux/actions';
 import { connect } from 'react-redux';
-
 
 
 const Filter = ({value, onChange}) => {
@@ -21,8 +20,6 @@ return (
     </form>
   </div>)
 }
-
-
 
 
 
