@@ -3,25 +3,16 @@ import {addContact, deletContact, filterContacts} from './actions';
 
 const initContactsState = {
     contacts:[],
-    error: '',
 }
 
 export const contactsReducer = createReducer(initContactsState,{
         [addContact.type]: (state, {payload}) => {   
-            if (state.contacts.some(contact => contact.name.toLowerCase()===payload.name)){
-                return {
-                    ...state,
-                    error: `The name ${payload.name} already exists.`
-                }
-            } else {
-                return {
-                    ...state,
-                    contacts: [...state.contacts, {
-                        name: payload.name,
-                        number: payload.number
-                    }],
-                    error: '', 
-                }
+            return {
+                ...state,
+                contacts: [...state.contacts, {
+                    name: payload.name,
+                    number: payload.number
+                }],
             }},
         [deletContact.type]: (state, {payload}) => {
             return {

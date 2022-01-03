@@ -1,7 +1,3 @@
-.formContainer{
-  margin-bottom: 100px;
-}
-
 .form {
   display: block;
   border: 2px solid black;
@@ -22,9 +18,4 @@
 .formButton {
   width: 200px;
   height: 20px;
-}
-
-.error {
-  color: rgb(226, 112, 6);
-  text-decoration: solid underline;
 }

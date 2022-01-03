@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import styles from './Form.module.css';
-import {connect, useSelector} from 'react-redux';
+import {connect} from 'react-redux';
 import {addContact} from '../../redux/contactsRedux/actions';
 import PropTypes from 'prop-types';
 
@@ -10,12 +10,6 @@ const Form = props => {
 
   const [newName,setNewName]=useState('');
   const [newNumber,setNewNumber]=useState('');
-  const [error, setError]=useState('');
-
-  const contacts = useSelector(state => state.contacts.contacts)
-
-
-
 
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -35,21 +29,16 @@ const Form = props => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (contacts.some(contact => contact.name.toLowerCase()===newName)){
-      setError(newName);
-      return;
-    } else {
-      props.onSubmit(newName, newNumber);
-      setNewName('');
-      setNewNumber(''); 
-      event.target.reset();
-    }
+    props.onSubmit(newName, newNumber);
+    setNewName('');
+    setNewNumber(''); 
+    event.target.reset();
   }
 
 
   return (
-    <div className = {styles.formContainer}>
-      <form onSubmit = {handleSubmit} className={styles.form}>
+    <div>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <label>
           Name:
           <input
@@ -77,7 +66,6 @@ const Form = props => {
         </label>
         <button className={styles.formButton}>Add contact</button>
       </form>
-      {error && <span className={styles.error}>The name {newName} already exists.</span> }
     </div>
   );
 
