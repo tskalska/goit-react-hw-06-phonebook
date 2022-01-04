@@ -1,5 +1,4 @@
-import {configureStore, combineReducers, getDefaultMiddleware
-} from '@reduxjs/toolkit';
+import {configureStore, combineReducers, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {contactsReducer, filterReducer} from './contactsRedux/reducer'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import persistReducer from 'redux-persist/es/persistReducer';
@@ -25,13 +24,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
 const store = configureStore({
-    reducer: persistedReducer,
-    devTools: process.env.NODE_ENV === 'development',
-    middleware: getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-    }),
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV === 'development',
+  middleware: getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+  }),
 })
 
 const persistedStore = persistStore(store);

@@ -1,10 +1,10 @@
 import {createAction} from '@reduxjs/toolkit';
 
-export const addContact = createAction('contacts/add', function prepare({name, number}){
+export const addContact = createAction('contacts/add', function prepare({newName, newNumber}){
     return {
         payload: {
-            name:name,
-            number:number,
+            name:newName,
+            number:newNumber,
         },
     }  
 });
@@ -14,6 +14,7 @@ export const deletContact = createAction('contacts/delet');
 
 export const filterContacts = createAction('constcts/filter');
 
+export const addError = createAction ('contacts/error');
 
 
 // ----------- RECDUX ----------

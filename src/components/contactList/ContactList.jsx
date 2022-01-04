@@ -10,7 +10,7 @@ export default function ContactList (){
   const contacts = useSelector(state => state.contacts.contacts)
   const filter = useSelector(state => state.filter)
 
-  const filteredList = contacts.filter(contact => contact.name.includes(filter))
+  const filteredList = contacts.filter(contact => contact.name.toLowerCase().includes(filter))
   
   return ( 
   <div>

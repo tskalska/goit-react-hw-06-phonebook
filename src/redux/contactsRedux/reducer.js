@@ -1,19 +1,28 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {addContact, deletContact, filterContacts} from './actions';
+import {addContact, deletContact, filterContacts, addError} from './actions';
 
 const initContactsState = {
     contacts:[],
+    error: '',
 }
 
 export const contactsReducer = createReducer(initContactsState,{
-        [addContact.type]: (state, {payload}) => {   
+        [addContact.type]: (state, {payload}) => {
+            console.log(payload);
             return {
                 ...state,
                 contacts: [...state.contacts, {
                     name: payload.name,
                     number: payload.number
                 }],
+                error: '',
             }},
+        [addError.type]: (state, {payload}) => {
+            return {
+                ...state, 
+                error: 'This name already exists', payload,
+            }
+        },
         [deletContact.type]: (state, {payload}) => {
             return {
                 ...state,
