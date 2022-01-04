@@ -33,7 +33,7 @@ export default function Form () {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (contacts && contacts.some(contact => contact.name.toLowerCase()===newName)){
+    if (contacts && contacts.some(contact => contact.name===newName)){
       dispatch(addError());
       event.target.reset();
       return;
